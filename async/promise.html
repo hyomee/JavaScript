@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body> 
+    <button id ="btn" onclick="fnCreatePromise()">Promise</button>
+    <div id="log" ></div> 
+</body>
+<script>
+    "use strict";   
+
+    let toggle = 0;
+    const getStatus = () => {
+        toggle = toggle + 1;
+        return toggle % 2  ;
+    };
+
+    const fnPrint = (msg) => {        
+        document.getElementById("log").insertAdjacentHTML('beforeend',` toggle :: ${toggle},  ${msg}  <br>` ); 
+    }
+
+    const fnResolve = (pResult) => {
+        fnPrint(pResult);
+    };
+
+    const fnReject = (pErrmsg) => {
+        fnPrint(pErrmsg);
+    };
+
+
+    // function fnPromise () { 
+    const fnPromise = (status) => {
+        return new Promise((resolve, reject) => {        
+            
+            fnPrint("pending");
+            setTimeout(() => {
+                if (status == 0) {
+                    // resolved 상태
+                    resolve("resolved 상태");
+                } else {
+                    //  fnReject 상태
+                    reject("fnReject 실패");
+                }
+            }, 2000);
+            
+        });
+    }
+   
+    const fnCreatePromise = () => {
+        fnPrint("시작"); 
+        fnPromise(getStatus())
+            .then(fnResolve) // fulfilled 
+            .catch(fnReject); // unfulfilled
+    };
+    
+</script>
+</html>
