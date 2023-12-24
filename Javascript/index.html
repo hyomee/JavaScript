@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+<body> 
+    <Label id="msg00" ></Label></br>  
+    <Label id="msg01" ></Label></br>  
+    <Label id="msg02" ></Label></br>  
+</body>
+<script>
+
+    // 콜백 함수 
+    const fnB = (name) => {    
+        console.log(`fnB :: ${name}`);
+        document.querySelector("#msg00")
+                .innerHTML = `msg00 :: ${name} :: 시간 :: ${(new Date()).getTime()}`;  
+    };
+
+    const fnA = (name, fnCallback) => {        
+        setTimeout(() => {
+            fnCallback(name);
+        }, 1000);
+        console.log(`fnA :: ${name} , 함수 ${fnCallback}`);
+
+        document.querySelector("#msg01")
+            .innerHTML = `msg01 ::  ${name} :: 시간 :: ${(new Date()).getTime()}`; 
+    };    
+    
+    // 매개 변수로 함수 생성해서 전달
+    fnA('김길동', function fnZ(pname) {
+        document.querySelector("#msg02")
+            .innerHTML = `msg02 :: ${pname} ::  시간 :: ${(new Date()).getTime()}`; 
+    });
+
+    // 매개 변수로 함수 전달
+    fnA('홍길동', fnB);
+
+
+    
+</script>
+</html>
