@@ -52,17 +52,15 @@ self.addEventListener('activate', event => {
 
 // 4.데이터 요청시 네트워크 또는 캐시에서 찾아 반환 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-    .then(response => {
-      if (!response) {
-        console.log("네트워크에서 데이터 요청!", event.request)
-        return fetch(event.request);
-      }
-      console.log("캐시에서 데이터 요청!", event.request)
-      return response;
-    }).catch(err => console.log(err))
-  );
+  console.log("Service Worker : fetch!")
+    event.respondWith(
+        // 서버 응답이 없으면 casche 정보 조회
+        fetch(event.request)
+        .catch(() => {
+            caches.match(event.request)
+        })
+        
+    )
 });
 
 
@@ -70,12 +68,9 @@ self.addEventListener('fetch', event => {
 // self.addEventListener("fetch", (event) => {
 //   console.log("Service Worker : fetch!")
 //   event.respondWith(
-//       // we are sending the request to the server. if network is down, then sending the res
-//       // from the cache.
 //       fetch(event.request)
 //       .catch(() => {
 //           caches.match(event.request)
-//       })
-      
+//       })      
 //   )
 // })
