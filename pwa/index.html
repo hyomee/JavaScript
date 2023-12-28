@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- PWA 매니페스트 파일 연결 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <!-- 모바일 기기 설정-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-- 주소창에 파비콘 설정 -->
+    <link rel="shortcut icon" href="images/icons/iabacus_3220.ico" >
+</head>
+<style>
+    html,
+    body {
+      /* html, body 모두 높이를 100%로 고정시켜야 flexbox 동작 */
+      height: 100%;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .container {
+      height: 100%;
+      /* 높이를 100%로 고정시킴 */
+      display: flex;
+      /* 컨테이너를 flexbox 스타일로 변경 */
+      align-items: center
+      /* 상하 가운데 정렬 */
+      justify-content: center;
+      /* 좌우 가운데 정렬*/
+    }
+  </style>
+<body>
+    <div class="container">
+        <h1>PWA</h1>
+        <P></P><img src="images/iabacus_logo_00.png">
+    </div>
+</body>
+<script type="module">
+    import fnRegisterPwa from './script/mjs/pwa.mjs';
+
+    fnRegisterPwa();
+</script>
+</html>
