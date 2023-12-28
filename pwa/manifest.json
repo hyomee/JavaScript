@@ -1,25 +1,25 @@
 {
-    "name": "abacus PWA",
-    "short_name": "abacus",
-    "description": "abacus study pwa program",
-    "scope": ".",
-    "start_url": "./",
-    "display": "fullscreen",
-    "orientation": "portrait",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "icons": [
-      {
-        "src": "images/images/iabacus_14490.png",
-        "sizes": "144x90",
-        "type": "image/png",
-        "purpose": "any"
-      },
-      {
-        "src": "images/images/iabacus_144144.png",
-        "sizes": "144x144",
-        "type": "image/png",
-        "purpose": "any"
-      }
-    ]
-  }
+  "name": "abacus PWA",
+  "short_name": "abacus",
+  "description": "abacus study pwa program",
+  "scope": ".",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "icons": [
+    {
+      "src": "images/images/iabacus_14490.png",
+      "sizes": "144x90",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/images/iabacus_144144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

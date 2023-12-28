@@ -20,25 +20,20 @@
     }
 
     .container {
-      height: 100%;
-      /* 높이를 100%로 고정시킴 */
-      display: flex;
-      /* 컨테이너를 flexbox 스타일로 변경 */
-      align-items: center
-      /* 상하 가운데 정렬 */
-      justify-content: center;
-      /* 좌우 가운데 정렬*/
+      height: 100%;            /* 높이를 100%로 고정시킴 */
+      display: flex;           /* 컨테이너를 flexbox 스타일로 변경 */
+      align-items: center;     /* 상하 가운데 정렬 */
+      justify-content: center; /* 좌우 가운데 정렬*/
     }
   </style>
 <body>
     <div class="container">
         <h1>PWA</h1>
-        <P></P><img src="images/iabacus_logo_00.png">
+        <P><img src="images/iabacus_logo_00.png"></P>
     </div>
 </body>
 <script type="module">
     import fnRegisterPwa from './script/mjs/pwa.mjs';
-
     fnRegisterPwa();
 </script>
 </html>
