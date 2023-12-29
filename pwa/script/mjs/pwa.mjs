@@ -1,12 +1,19 @@
-const fnLoadPwd = () => {
-    navigator.serviceWorker
-            .register('./script/js/service_worker.js')
-            .then((msg)=> {
-                console.log('서비스 워커 등록 :: ' + msg);
-            })
-            .catch((errMsg)=> {
-                console.log('서비스 워커 미 등록 ::' + errMsg);
-            });
+const fnLoadPwd = async () => {
+    try {
+        const registration = await navigator.serviceWorker
+            .register('./script/js/sw.js');
+        
+        if (registration.installing) {
+            console.log("서비스 워커 :  installing");
+        } else if (registration.waiting) {
+            console.log("서비스 워커 : installed");
+        } else if (registration.active) {
+            console.log("서비스 워커 : active");
+        }
+    } catch ( error ) {
+        console.error(`서비스 워커 등록 오류 : ${error}`);
+    }
+    
 };
 
 const fnRegisterPwa = ()=> {
