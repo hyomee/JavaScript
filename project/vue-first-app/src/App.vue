@@ -1,30 +1,59 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+  import HelloWorld from './components/HelloWorld.vue'
+  import DataComponent from './components/DataComponent.vue'
+  import IfComponent from './components/IfComponent.vue'
+  import IfExpCom from './components/IfExpCom.vue'
+  import ListCom from './components/ListCom.vue'
+  import ForifTempCom from './components/ForifTempCom.vue'
+
 </script>
 
+<!-- <script>
+  import HelloWorld from './components/HelloWorld.vue'  
+  import DataComponent from './components/DataComponent.vue'
+  import DataComponent from './components/IfComponent.vue'
+  import IfExpCom from './components/IfExpCom.vue'
+  import ListCom from './components/ListCom.vue'
+  export default {
+    components:  {
+      HelloWorld,
+      DataComponent,
+      IfComponent,
+      IfExpCom,
+      ListCom
+    },
+    setup() {
+
+    }
+  }
+</script> -->
+
+<!-- <script>
+  import HelloWorld from './components/HelloWorld.vue'  
+  import DataComponent  from './components/DataComponent.vue' 
+  import IfComponent from './components/IfComponent.vue'
+  import IfExpCom from './components/IfExpCom.vue'
+  import ListCom from './components/ListCom.vue'
+  export default {
+    components:  {
+      HelloWorld,
+      DataComponent ,
+      IfComponent,
+      IfExpCom,
+      ListCom
+    }
+  }
+</script> -->
+
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld msg="Vite + Vue 첫번째 예제" />
+  <data-component />
+  <hr/>
+  <if-component /><hr/>
+  <if-exp-com /><hr/>
+  <list-com />
+  <forif-tempCom /> 
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
