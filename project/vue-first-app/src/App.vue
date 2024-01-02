@@ -5,6 +5,7 @@
   import IfExpCom from './components/IfExpCom.vue'
   import ListCom from './components/ListCom.vue'
   import ForifTempCom from './components/ForifTempCom.vue'
+  import EventComponent from './components/EventComponent.vue'
 
 </script>
 
@@ -53,6 +54,7 @@
   <if-exp-com /><hr/>
   <list-com />
   <forif-tempCom /> 
+  <event-component />
 </template>
 
 <style scoped>
