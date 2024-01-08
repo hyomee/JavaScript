@@ -1,11 +1,10 @@
 <script setup>
-    import { ref } from 'vue';
+  import { ref } from 'vue';
+  import Component_00 from '@/components/rtComponent/Component_00.vue';
+  import Component_01 from '@/components/rtComponent/Component_01.vue';
+  import ComponentReUse from '@/components/rtComponent/ComponentReUse.vue';
 
-    import Component_00 from '../components/cpns/Component_00.vue';
-    import Component_01 from '../components/cpns/component_01.vue';
-
-
-    const customers = ref([
+  const customers = ref([
     { 
       id : 1, 
       name: '홍길동',
@@ -22,6 +21,14 @@
     }
   ]);
 
+ 
+
+  const isDetailVisible = ref(true);
+
+  const fnToggleDetailVisible = function() {
+      isDetailVisible.value = !isDetailVisible.value;
+  }
+
 </script>
 
 <template>
@@ -30,13 +37,15 @@
     <div class="container  w-50 p-2" >
         <h1 class="m-2 p-2  mb-1 bg-secondary text-white">Component ReUse</h1>
         <ul class="container list-group list-unstyled ">
-            <component-re-use                                
-                :isDetailVisible = "true"
-                 ></component-re-use> 
+            <component-re-use                           
+                :isDetailVisible = isDetailVisible
+                v-for="customer in customers"
+                :key = "customer.id"
+                :customer= customer 
+                @toggle-detail-visible="fnToggleDetailVisible"></component-re-use> 
         </ul>
     </div>
 </template>
 
-<!-- v-for="customer in customers"
-                :key = "customer.id"
-                :customer= customer  -->
+
+<!--   -->
