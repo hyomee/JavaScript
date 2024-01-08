@@ -4,7 +4,7 @@
   import Component_01 from '@/components/rtComponent/Component_01.vue';
   import ComponentReUse from '@/components/rtComponent/ComponentReUse.vue';
   import ComponentForm from '@/components/rtComponent/ComponentForm.vue'
-
+  import { fnDeepCopy } from '@/module/CopyUtils.js'
 
   const customers = reactive([
     { 
@@ -33,9 +33,11 @@
 
   // 고객 정보 처리 
   const fnProcessCustomer = (pCustomer)=>{
-    console.log(pCustomer);
-    customers.push(pCustomer);
-    console.log(customers);
+    const customer = fnDeepCopy(pCustomer) 
+    customer.id = Math.max(...customers.map(customer => customer.id)) + 1;
+    customers.push(customer);
+    console.log(customer);
+ 
   }
 
 
@@ -50,7 +52,8 @@
         <component-form
           @add-customer="fnProcessCustomer" />
         <div class="card p-1 m-1">
-          <ul class="container list-group list-unstyled ">
+          <h5 class="card-header  text-white bg-success ">고객 목록 </h5>
+          <ul class="card-body list-group list-unstyled ">
               <component-re-use                           
                   :isDetailVisible = isDetailVisible
                   v-for="customer in customers"

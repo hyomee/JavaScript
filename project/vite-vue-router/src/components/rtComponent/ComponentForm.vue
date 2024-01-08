@@ -5,7 +5,7 @@
     import { defineEmits, reactive } from 'vue'
 
     // Data 선언
-    const customer = reactive({
+    const customer = reactive({ 
         name: '',
         phone: '',
         email: '',
