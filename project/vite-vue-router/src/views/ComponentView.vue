@@ -21,7 +21,13 @@
     }
   ]);
 
-  const isDetailVisible = ref(true)
+ 
+
+  const isDetailVisible = ref(true);
+
+  const fnToggleDetailVisible = function() {
+      isDetailVisible.value = !isDetailVisible.value;
+  }
 
 </script>
 
@@ -31,12 +37,12 @@
     <div class="container  w-50 p-2" >
         <h1 class="m-2 p-2  mb-1 bg-secondary text-white">Component ReUse</h1>
         <ul class="container list-group list-unstyled ">
-            <component-re-use                                
-                isDetailVisible
+            <component-re-use                           
+                :isDetailVisible = isDetailVisible
                 v-for="customer in customers"
                 :key = "customer.id"
-                :customer= customer
-                 ></component-re-use> 
+                :customer= customer 
+                @toggle-detail-visible="fnToggleDetailVisible"></component-re-use> 
         </ul>
     </div>
 </template>
